@@ -1,6 +1,6 @@
 if (arg[1] == 'default') then
-	port = '10002'
-	host = '192.168.2.202'
+	port = '9003'
+	host = '192.168.2.128'
 	nodeid = 20
 else
 	if (arg[1] == nil) then
@@ -44,9 +44,9 @@ publisher:bind("tcp://*:"..port)
 
 while not(exit) do
     local mote = tossam.connect {
-        protocol = "network",
+        protocol = "sf",
         host     = host,
-        port     = '10002',
+        port     = port,
         nodeid   = nodeid
     }
     if not(mote) then print("  ! connection error\n  ! aborting"); return(1); end
